@@ -6,7 +6,8 @@ namespace Exercises
         public static DateTime AddGigaSecond(DateTime dateTime)
         {
             // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return dateTime.AddSeconds(Math.Pow(10,9));
         }
     }
 }
