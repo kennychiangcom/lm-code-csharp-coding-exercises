@@ -10,65 +10,37 @@ namespace Exercises
     {
         public string CapitalizeWord(string word)
         {
-            // Replace the exception statement below with your code!
-            //throw new NotImplementedException();
-            if (!string.IsNullOrWhiteSpace(word)) { 
-                string f = word.Trim();
-                return string.Concat(f.Substring(0,1).ToUpper(),f.Substring(1).ToLower());
-            }
-            else {return word;};
+            if (string.IsNullOrWhiteSpace(word)) return word;
+            else return string.Concat(word.Trim()[..1].ToUpper(), word.Trim()[1..].ToLower());
         }
 
-        public string GenerateInitials(string firstName, string lastName)
-        {
-            // Replace the exception statement below with your code!
-            //throw new NotImplementedException();
-            return firstName.Trim().Substring(0,1).ToUpper()+"."+lastName.Trim().Substring(0,1).ToUpper();
-        }
+        public string GenerateInitials(string firstName, string lastName) => firstName.Trim()[..1].ToUpper() + "." + lastName.Trim()[..1].ToUpper();
 
         public double AddVat(double originalPrice, double vatRate)
         {
-            // Replace the exception statement below with your code!
-            //throw new NotImplementedException();
-            if (originalPrice < 0) {
-                throw new ArgumentException("Price cannot be negative. Please enter a valid price.");
-            }
-            else if (vatRate < 0) {
-                throw new ArgumentException("VAT cannot be negative. Please enter a valid VAT.");
-            };
+            if (originalPrice < 0) throw new ArgumentException("Price cannot be negative. Please enter a valid price.");
+            else if (vatRate < 0) throw new ArgumentException("VAT cannot be negative. Please enter a valid VAT.");
             return Math.Round(originalPrice + originalPrice * vatRate / 100,2);
-
-            // NB: Look in Exercise001Tests.cs
-            //     There is a test with commented out assertions.
-            //     For an extra challenge, uncomment those assertions and make that test pass too.
         }
 
         public string Reverse(string sentence)
         {
-            // Replace the exception statement below with your code!
-            //throw new NotImplementedException();
-            if (!string.IsNullOrWhiteSpace(sentence)) {
+            if (string.IsNullOrWhiteSpace(sentence)) return sentence;
+            else {
                 char[] chars = sentence.ToCharArray();
                 Array.Reverse(chars);
                 return new string(chars);
             }
-            else {return sentence;};
         }
 
         public int CountLinuxUsers(List<User> users)
         {
-            // Replace the exception statement below with your code!
-            //throw new NotImplementedException();
             if ((users != null) && users.Any()) {
                 int count = 0;
-                foreach (User user in users)
-                {
-                    //Console.WriteLine(user.Type);
-                    if (user.Type == "Linux") count++;
-                };
+                foreach (User user in users) if (user.Type.Equals("Linux")) count++;
                 return count;
             }
-            else {return 0;};
+            else return 0;
         }
     }
 }
