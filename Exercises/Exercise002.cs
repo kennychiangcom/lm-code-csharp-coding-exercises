@@ -8,5 +8,5 @@ namespace Exercises
     {
         public bool IsFromManchester(Person person) => (person != null) && person.ToString().Any() && person.FromCity.Equals("Manchester");
         public bool CanWatchFilm(Person person, int ageLimit) => person.Age >= ageLimit;
-}
+    }
 }

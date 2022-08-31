@@ -20,13 +20,14 @@ namespace Exercises
         {
             if (originalPrice < 0) throw new ArgumentException("Price cannot be negative. Please enter a valid price.");
             else if (vatRate < 0) throw new ArgumentException("VAT cannot be negative. Please enter a valid VAT.");
-            return Math.Round(originalPrice + originalPrice * vatRate / 100,2);
+            return Math.Round(originalPrice + originalPrice * vatRate / 100, 2);
         }
 
         public string Reverse(string sentence)
         {
             if (string.IsNullOrWhiteSpace(sentence)) return sentence;
-            else {
+            else
+            {
                 char[] chars = sentence.ToCharArray();
                 Array.Reverse(chars);
                 return new string(chars);
@@ -35,7 +36,8 @@ namespace Exercises
 
         public int CountLinuxUsers(List<User> users)
         {
-            if ((users != null) && users.Any()) {
+            if ((users != null) && users.Any())
+            {
                 int count = 0;
                 foreach (User user in users) if (user.Type.Equals("Linux")) count++;
                 return count;
